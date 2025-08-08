@@ -82,3 +82,4 @@ Na exportação para Android:
 # Socializ
 # Socializ
 # Socializ
+# Socializ
