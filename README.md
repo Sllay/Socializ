@@ -74,3 +74,4 @@ Na exportação para Android:
 
 🎮 Em breve: vídeo completo no meu canal mostrando como adaptar e implantar seu próprio multiplayer mobile com WebSocket!
 # Socializ
+# Socializ
