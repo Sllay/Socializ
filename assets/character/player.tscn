@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddba13epusrf8"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="3_8iw34"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ipnkg"]
+margin = 0.001
+size = Vector3(0.5, 2, 0.5)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ipnkg"]
+properties/0/path = NodePath("Control/body/AnimationPlayer:current_animation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Control/body/AnimationPlayer:playback_auto_capture")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:up_direction")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:collision_layer")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:position")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 7
+platform_on_leave = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_ipnkg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Virtual Joystick" parent="Control" instance=ExtResource("3_8iw34")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 80.0
+offset_top = -368.0
+offset_right = 380.0
+offset_bottom = -68.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(150, 150)
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.520718, 0.865061)
+fov = 90.0
+
+[node name="AreaInput" type="Control" parent="CameraPivot"]
+custom_minimum_size = Vector2(640, 740)
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -370.0
+offset_bottom = 370.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot"]
+collision_mask = 6
+hit_from_inside = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ipnkg")

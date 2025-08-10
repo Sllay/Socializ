@@ -29,8 +29,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": ["Joining server", "Joining server.", "Joining server..", "Joining server...
-"]
+"values": ["Joining Server", "Joining Server.", "Joining Server..", "Joining Server..."]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h2yge"]
@@ -66,9 +65,10 @@ grow_vertical = 2
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.101961, 0.101961, 0.101961, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Transition"]
+custom_minimum_size = Vector2(400, 64)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -83,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = SubResource("1")
 theme_override_font_sizes/font_size = 32
-text = "Joining server.."
+text = "Joining Server"
 horizontal_alignment = 1
 vertical_alignment = 1
 

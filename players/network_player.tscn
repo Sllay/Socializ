@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b476xo7fnsw7j"]
+[gd_scene load_steps=7 format=3 uid="uid://b476xo7fnsw7j"]
 
 [ext_resource type="Script" uid="uid://rawmwg71f5wx" path="res://players/network_player.gd" id="2"]
 
@@ -7,8 +7,23 @@ size = Vector3(1, 2, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k1fik"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1fik"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb57l"]
+next_pass = SubResource("StandardMaterial3D_k1fik")
 albedo_color = Color(1, 0, 0, 1)
+stencil_mode = 1
+stencil_flags = 2
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_k1fik"]
 properties/0/path = NodePath(".:position")

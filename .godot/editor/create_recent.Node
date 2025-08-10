@@ -1,9 +1,13 @@
-Panel
+AnimationPlayer
+TouchScreenButton
+Node3D
+Control
+CanvasLayer
 Camera3D
+SpringArm3D
+Panel
 MultiplayerSynchronizer
 MeshInstance3D
 CollisionShape3D
 CharacterBody3D
 Marker3D
-Node3D
-TouchScreenButton

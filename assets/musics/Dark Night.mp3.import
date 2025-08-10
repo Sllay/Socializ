@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cygsmflgtgkxh"
+path="res://.godot/imported/Dark Night.mp3-76e1d003f641f01ad838b9e422fd4542.mp3str"
+
+[deps]
+
+source_file="res://assets/musics/Dark Night.mp3"
+dest_files=["res://.godot/imported/Dark Night.mp3-76e1d003f641f01ad838b9e422fd4542.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

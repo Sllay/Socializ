@@ -14,8 +14,12 @@ config/name="Socializ"
 config/version="0.0.01"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.5")
-boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://icon.png"
+boot_splash/bg_color=Color(0.043137256, 0.03529412, 0.08627451, 1)
+config/icon="uid://dsgabc2jwm0m5"
+config/macos_native_icon="uid://dsgabc2jwm0m5"
+config/windows_native_icon="uid://dsgabc2jwm0m5"
+boot_splash/image="uid://b1yr6ed2ertaj"
+boot_splash/minimum_display_time=60
 
 [autoload]
 
@@ -76,8 +80,14 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=1
 textures/canvas_textures/default_texture_filter=0
+global_illumination/gi/use_half_resolution=true
+environment/ssao/quality=1
 viewport/hdr_2d=true
+occlusion_culling/occlusion_rays_per_thread=16
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
-anti_aliasing/quality/screen_space_aa=2
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_debanding=true
+occlusion_culling/use_occlusion_culling=true
 environment/defaults/default_environment="res://default_env.tres"

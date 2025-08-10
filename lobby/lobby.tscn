@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://brndjrek6503t"]
+[gd_scene load_steps=11 format=3 uid="uid://brndjrek6503t"]
 
 [ext_resource type="Script" uid="uid://baltwm0m1gdrs" path="res://lobby/lobby.gd" id="1"]
 
@@ -8,16 +8,15 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.07058824, 0.07058824, 0.16862746, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0, 0, 0.8, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(1.92523e-07, 9.62615e-08, 0.41900635, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 anti_aliasing_size = 0.01
 
 [sub_resource type="FontFile" id="1"]
@@ -40,6 +39,22 @@ cache/0/64/0/underline_position = 0.0
 cache/0/64/0/underline_thickness = 0.0
 cache/0/64/0/scale = 1.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_jtv5c"]
+font_size = 64
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(8, 8)
+stacked_outline_count = 3
+stacked_shadow_count = 1
+stacked_outline_0/size = 16
+stacked_outline_0/color = Color(0, 0, 0.50980395, 1)
+stacked_outline_1/size = 16
+stacked_outline_1/color = Color(0.69803923, 0, 0.95686275, 1)
+stacked_outline_2/size = 16
+stacked_outline_2/color = Color(0, 0, 0.5647059, 1)
+stacked_shadow_0/offset = Vector2(16, 16)
+stacked_shadow_0/outline_size = 16
+
 [sub_resource type="FontFile" id="5"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
@@ -55,14 +70,86 @@ cache/0/32/0/underline_position = 0.0
 cache/0/32/0/underline_thickness = 0.0
 cache/0/32/0/scale = 1.0
 
-[sub_resource type="StyleBoxFlat" id="6"]
-bg_color = Color(0, 0.23137255, 0.6431373, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnguq"]
+bg_color = Color(0.22352941, 0, 0.6431373, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 1, 1)
 anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="6"]
+bg_color = Color(9.866804e-07, 0.13877699, 0.41739932, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+anti_aliasing_size = 0.01
+
+[sub_resource type="Animation" id="Animation_jtv5c"]
+resource_name = "Loop"
+length = 3.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Header:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(400, 16), Vector2(400, 64), Vector2(400, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Header:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2268928, -0.2932153, 0.2617994, -0.22165681, 0.43284166, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mnguq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Header:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(408.001, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Header:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uj4ub"]
+_data = {
+&"Loop": SubResource("Animation_jtv5c"),
+&"RESET": SubResource("Animation_mnguq")
+}
 
 [node name="Lobby" type="Control"]
 layout_mode = 3
@@ -87,11 +174,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -232.0
-offset_top = 30.0
-offset_right = 232.0
-offset_bottom = 150.0
+offset_left = -231.999
+offset_top = 16.0
+offset_right = 231.9978
+offset_bottom = 135.99797
 grow_horizontal = 2
+pivot_offset = Vector2(235.76001, 65.119995)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.79607844)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -102,6 +190,7 @@ theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = SubResource("1")
 theme_override_font_sizes/font_size = 64
 text = "SOCIALIZ"
+label_settings = SubResource("LabelSettings_jtv5c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -125,7 +214,23 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = SubResource("5")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mnguq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mnguq")
+theme_override_styles/pressed_mirrored = SubResource("6")
+theme_override_styles/hover = SubResource("6")
+theme_override_styles/hover_mirrored = SubResource("6")
+theme_override_styles/hover_pressed = SubResource("6")
+theme_override_styles/hover_pressed_mirrored = SubResource("6")
+theme_override_styles/disabled = SubResource("6")
+theme_override_styles/disabled_mirrored = SubResource("6")
+theme_override_styles/focus = SubResource("6")
+toggle_mode = true
 text = "ENTRAR"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uj4ub")
+}
+autoplay = "Loop"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

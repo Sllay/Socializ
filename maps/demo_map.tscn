@@ -1,35 +1,28 @@
-[gd_scene load_steps=16 format=3 uid="uid://ry5b1ta4sixy"]
+[gd_scene load_steps=21 format=3 uid="uid://ry5b1ta4sixy"]
 
 [ext_resource type="Script" uid="uid://vujq4malo4b8" path="res://maps/demo_map.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_7xs1f"]
+[ext_resource type="Texture2D" uid="uid://dvxulvb8eq1pa" path="res://assets/skybox/Sky.png" id="2_ergo7"]
 [ext_resource type="Script" uid="uid://d4jy7p7dqiti6" path="res://maps/chat.gd" id="3"]
-
-[sub_resource type="Gradient" id="Gradient_7xs1f"]
-offsets = PackedFloat32Array(0, 0.44078946, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7xs1f"]
-noise_type = 3
-seed = 8
-frequency = 0.02
-fractal_octaves = 8
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d46cj"]
-noise = SubResource("FastNoiseLite_7xs1f")
-color_ramp = SubResource("Gradient_7xs1f")
-seamless = true
+[ext_resource type="Texture2D" uid="uid://bkvmydfn5saxg" path="res://addons/virtual_joystick/textures/joystick_tip.png" id="4_oeo4n"]
+[ext_resource type="Texture2D" uid="uid://jpd2s2l01u7t" path="res://assets/MyAssets/texture.png" id="5_peyr1"]
+[ext_resource type="Texture2D" uid="uid://bhnjq5vuyjjns" path="res://assets/materials/Material-LIB/Nature/FoliageGrass/FoliageGrass-R.png" id="7_oeo4n"]
+[ext_resource type="Texture2D" uid="uid://b2iv21e8qrc3v" path="res://assets/materials/Material-LIB/Nature/FoliageGrass/FoliageGrass-B.png" id="7_peyr1"]
+[ext_resource type="Texture2D" uid="uid://batm1l4moabq2" path="res://assets/materials/Material-LIB/Nature/FoliageGrass/FoliageGrass-M.png" id="8_v35ok"]
+[ext_resource type="Texture2D" uid="uid://cvwdmvcvypv1t" path="res://assets/materials/Material-LIB/Nature/FoliageGrass/FoliageGrass-N.png" id="9_2sb1r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7xs1f"]
 sky_top_color = Color(0.007843138, 0.68235296, 1, 1)
-sky_horizon_color = Color(1, 0.68235296, 0.3372549, 1)
-sky_curve = 0.058843788
-sky_cover = SubResource("NoiseTexture2D_d46cj")
+sky_horizon_color = Color(0.9253349, 0.7843068, 0.61631733, 1)
+sky_curve = 0.08615262
+sky_cover = ExtResource("2_ergo7")
 ground_bottom_color = Color(0, 0, 0.24514276, 1)
-ground_horizon_color = Color(1, 0.68235296, 0.3372549, 1)
-ground_curve = 0.009012502
+ground_horizon_color = Color(0.9253349, 0.7843068, 0.61631733, 1)
+ground_curve = 0.016817924
 
 [sub_resource type="Sky" id="Sky_d46cj"]
 sky_material = SubResource("ProceduralSkyMaterial_7xs1f")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_o2dya"]
 background_mode = 2
@@ -47,7 +40,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 1, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -65,17 +58,29 @@ border_color = Color(0, 0, 0.19215687, 1)
 anti_aliasing_size = 0.01
 
 [sub_resource type="BoxMesh" id="BoxMesh_7xs1f"]
-size = Vector3(50, 1, 5)
+size = Vector3(50, 1, 60)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d46cj"]
-albedo_color = Color(0.3764706, 0.5372549, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peu7v"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("7_peyr1")
+metallic = 1.0
+metallic_texture = ExtResource("8_v35ok")
+roughness_texture = ExtResource("7_oeo4n")
+normal_scale = 5.0
+normal_texture = ExtResource("9_2sb1r")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o2dya"]
-data = PackedVector3Array(-25, 0.5, 2.5, 25, 0.5, 2.5, -25, -0.5, 2.5, 25, 0.5, 2.5, 25, -0.5, 2.5, -25, -0.5, 2.5, 25, 0.5, -2.5, -25, 0.5, -2.5, 25, -0.5, -2.5, -25, 0.5, -2.5, -25, -0.5, -2.5, 25, -0.5, -2.5, 25, 0.5, 2.5, 25, 0.5, -2.5, 25, -0.5, 2.5, 25, 0.5, -2.5, 25, -0.5, -2.5, 25, -0.5, 2.5, -25, 0.5, -2.5, -25, 0.5, 2.5, -25, -0.5, -2.5, -25, 0.5, 2.5, -25, -0.5, 2.5, -25, -0.5, -2.5, 25, 0.5, 2.5, -25, 0.5, 2.5, 25, 0.5, -2.5, -25, 0.5, 2.5, -25, 0.5, -2.5, 25, 0.5, -2.5, -25, -0.5, 2.5, 25, -0.5, 2.5, -25, -0.5, -2.5, 25, -0.5, 2.5, 25, -0.5, -2.5, -25, -0.5, -2.5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oeo4n"]
+data = PackedVector3Array(-25, 0.5, 30, 25, 0.5, 30, -25, -0.5, 30, 25, 0.5, 30, 25, -0.5, 30, -25, -0.5, 30, 25, 0.5, -30, -25, 0.5, -30, 25, -0.5, -30, -25, 0.5, -30, -25, -0.5, -30, 25, -0.5, -30, 25, 0.5, 30, 25, 0.5, -30, 25, -0.5, 30, 25, 0.5, -30, 25, -0.5, -30, 25, -0.5, 30, -25, 0.5, -30, -25, 0.5, 30, -25, -0.5, -30, -25, 0.5, 30, -25, -0.5, 30, -25, -0.5, -30, 25, 0.5, 30, -25, 0.5, 30, 25, 0.5, -30, -25, 0.5, 30, -25, 0.5, -30, 25, 0.5, -30, -25, -0.5, 30, 25, -0.5, 30, -25, -0.5, -30, 25, -0.5, 30, 25, -0.5, -30, -25, -0.5, -30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igup5"]
 transparency = 1
 albedo_color = Color(18.892157, 18.892157, 18.892157, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o2dya"]
+data = PackedVector3Array(-25, 0.5, 2.5, 25, 0.5, 2.5, -25, -0.5, 2.5, 25, 0.5, 2.5, 25, -0.5, 2.5, -25, -0.5, 2.5, 25, 0.5, -2.5, -25, 0.5, -2.5, 25, -0.5, -2.5, -25, 0.5, -2.5, -25, -0.5, -2.5, 25, -0.5, -2.5, 25, 0.5, 2.5, 25, 0.5, -2.5, 25, -0.5, 2.5, 25, 0.5, -2.5, 25, -0.5, -2.5, 25, -0.5, 2.5, -25, 0.5, -2.5, -25, 0.5, 2.5, -25, -0.5, -2.5, -25, 0.5, 2.5, -25, -0.5, 2.5, -25, -0.5, -2.5, 25, 0.5, 2.5, -25, 0.5, 2.5, 25, 0.5, -2.5, -25, 0.5, 2.5, -25, 0.5, -2.5, 25, 0.5, -2.5, -25, -0.5, 2.5, 25, -0.5, 2.5, -25, -0.5, -2.5, 25, -0.5, 2.5, 25, -0.5, -2.5, -25, -0.5, -2.5)
 
 [node name="DemoMap" type="Node3D"]
 script = ExtResource("2")
@@ -86,7 +91,9 @@ environment = SubResource("Environment_o2dya")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-1, 1.5180806e-08, -8.609462e-08, 0, 0.9848077, 0.17364818, 8.742278e-08, 0.17364818, -0.9848077, 0, 0, 0)
 light_color = Color(1, 1, 0.34901962, 1)
+light_bake_mode = 0
 shadow_enabled = true
+shadow_bias = 1.0
 
 [node name="SpawnPos" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -111,6 +118,14 @@ action_left = "left"
 action_right = "right"
 action_up = "up"
 action_down = "down"
+
+[node name="runner" type="TouchScreenButton" parent="DummyControl"]
+position = Vector2(1039, 473)
+texture_normal = ExtResource("4_oeo4n")
+texture_pressed = ExtResource("5_peyr1")
+passby_press = true
+action = "ui_accept"
+visibility_mode = 1
 
 [node name="Chat" type="Control" parent="."]
 custom_minimum_size = Vector2(384, 233)
@@ -164,16 +179,16 @@ text = "                                  B ATE-PAPO
 
 [node name="Gound" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_7xs1f")
-surface_material_override/0 = SubResource("StandardMaterial3D_d46cj")
+surface_material_override/0 = SubResource("StandardMaterial3D_peu7v")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Gound"]
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gound/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_o2dya")
+shape = SubResource("ConcavePolygonShape3D_oeo4n")
 
 [node name="Hall" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, -3)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, -25)
 mesh = SubResource("BoxMesh_7xs1f")
 surface_material_override/0 = SubResource("StandardMaterial3D_igup5")
 
@@ -184,7 +199,7 @@ collision_mask = 3
 shape = SubResource("ConcavePolygonShape3D_o2dya")
 
 [node name="Hall2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, 3)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, 25)
 mesh = SubResource("BoxMesh_7xs1f")
 surface_material_override/0 = SubResource("StandardMaterial3D_igup5")
 
@@ -215,10 +230,6 @@ collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hall4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_o2dya")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 10, 15)
-fov = 90.0
 
 [connection signal="gui_input" from="DummyControl" to="Chat" method="_on_DummyControl_gui_input"]
 [connection signal="text_submitted" from="Chat/LineEdit" to="Chat" method="_on_LineEdit_text_entered"]

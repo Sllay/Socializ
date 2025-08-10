@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdke8met07s0j"]
+
+[ext_resource type="AnimationLibrary" uid="uid://dk8dldfwi75lv" path="res://assets/animation/Global.res" id="1_r83rg"]
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+&"State": ExtResource("1_r83rg")
+}
